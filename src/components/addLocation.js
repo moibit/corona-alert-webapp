@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, Button,Form } from 'semantic-ui-react'
+import { Icon, Button,Form } from 'semantic-ui-react';
+import SummaryComponent from './summaryOfLocations'
 import '../css/App.css';
 
 export default class LocationPortal extends React.Component {
@@ -41,10 +42,7 @@ export default class LocationPortal extends React.Component {
                             <Icon name='plus' />
                             Add Another Location
                         </Button>
-                        <Button icon labelPosition='right' color="facebook">
-                            Finish
-                            <Icon name='check' />
-                        </Button>
+                        <SummaryComponent />
                     </div>
                 </div>
             </div>
