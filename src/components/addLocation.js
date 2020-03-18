@@ -40,7 +40,7 @@ export default class LocationPortal extends React.Component {
                                     num : ''
                                 })
                                 this.setState({
-
+                                    people : _people
                                 })
                             }}>
                                 Add Member

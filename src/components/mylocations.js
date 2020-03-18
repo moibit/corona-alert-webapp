@@ -26,7 +26,7 @@ const TableExampleCollapsing = () => (
                     </Header.Content>
                 </Header>
                 </Table.Cell>
-                <Table.Cell><a>https://www.google.com/maps/timeline?pb</a></Table.Cell>
+                <Table.Cell><a href="https://www.google.com/maps/timeline?pb=!1m2!1m1!1s2019-03-16&pli=1" target="_blank">https://www.google.com/maps/timeline?pb=!1m2!1m1!1s2019-03-16&pli=1</a></Table.Cell>
             </Table.Row>
             <Table.Row>
                 <Table.Cell>
@@ -36,7 +36,7 @@ const TableExampleCollapsing = () => (
                     </Header.Content>
                 </Header>
                 </Table.Cell>
-                <Table.Cell><a>https://www.google.com/maps/timeline?pb</a></Table.Cell>
+                <Table.Cell><a href="https://www.google.com/maps/timeline?pb=!1m2!1m1!1s2019-03-24&pli=1" target="_blank">https://www.google.com/maps/timeline?pb=!1m2!1m1!1s2019-03-24&pli=1</a></Table.Cell>
             </Table.Row>
             <Table.Row>
                 <Table.Cell>
@@ -46,7 +46,7 @@ const TableExampleCollapsing = () => (
                     </Header.Content>
                 </Header>
                 </Table.Cell>
-                <Table.Cell><a>https://www.google.com/maps/timeline?pb</a></Table.Cell>
+                <Table.Cell><a href="https://www.google.com/maps/timeline?pb=!1m2!1m1!1s2019-03-22&pli=1" target="_blank">https://www.google.com/maps/timeline?pb=!1m2!1m1!1s2019-03-22&pli=1</a></Table.Cell>
             </Table.Row>
             <Table.Row>
                 <Table.Cell>
@@ -56,7 +56,7 @@ const TableExampleCollapsing = () => (
                     </Header.Content>
                 </Header>
                 </Table.Cell>
-                <Table.Cell><a>https://www.google.com/maps/timeline?pb</a></Table.Cell>
+                <Table.Cell><a href="https://www.google.com/maps/timeline?pb=!1m2!1m1!1s2019-03-09&pli=1" target="_blank">https://www.google.com/maps/timeline?pb=!1m2!1m1!1s2019-03-09&pli=1</a></Table.Cell>
             </Table.Row>
             </Table.Body>
         </Table>
