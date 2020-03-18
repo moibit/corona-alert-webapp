@@ -4,6 +4,7 @@ import './css/index.css';
 import EntryPoint from './components/Entry.js';
 import Home from './components/home';
 import LocationPortal from './components/addLocation';
+import MyActivity from './components/mylocations';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
@@ -24,8 +25,13 @@ class Application extends React.Component {
                         <EntryPoint case={2} />
                     )} />
 
-                    <Route exact path="/home" component={Home} />  
+                    <Route exact path="/home" render={() => (
+                        <Home dashboard={true} />
+                    )} />  
                     <Route exact path="/addLocation" component={LocationPortal} />   
+                    <Route exact path="/myActivity" render={() => (
+                        <Home dashboard={false} />
+                    )} />   
                 </Switch>
 
             </HashRouter>

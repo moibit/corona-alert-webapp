@@ -1,6 +1,8 @@
 import React from 'react'
-import {Popup, Button,Menu,Dropdown ,Grid,Header} from 'semantic-ui-react';
+import {Popup, Button,Menu,Dropdown} from 'semantic-ui-react';
 import StatsInChart from './lineChart.js';
+import MyActivity from './mylocations';
+
 import '../css/App.css';
 
 export default class Home extends React.Component {
@@ -26,38 +28,45 @@ export default class Home extends React.Component {
                     <div style={{marginTop:'4vh'}}>
                         <span style={{fontSize:'14px'}}>My Activity</span>
                         <br />
-                        <Button primary>My Locations</Button>
+                        <Button onClick={()=>{
+                            window.location = '/#/myActivity'
+                        }}primary>My Locations</Button>
                     </div>
                 </div>
                 <div style={{marginLeft:'25vw'}}>
-                    Covid-19 Stats
-                    <span style={{float:'right',width:'200px'}}>
-                        <CountryDropDown />
-                    </span>
-                    <div style={{marginTop:'5vh',display:'flex'}}>
-                        <StatsInChart  />
-                        <Counter title="Total Effected" count="125" color="blue" />
-                        <Counter title="Total Recovered" count="82" color="green" />
-                        <Counter title="Total Deaths" count="4" color="red" />
-                    </div>
-                    <div>
-                        <h3>About Covid-19 and Tips, News and preventive measures</h3>
-                        <p><a>https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html</a></p>
-                        <p><a>https://www.bbc.com/news/world-51235105</a></p>
-                        <p><a>https://www.redcross.org/about-us/news-and-events/news/2020/coronavirus-safety-and-readiness-tips-for-you.html</a></p>
-                        <p><a>https://www.bbc.com/news/health-51711227</a></p>
-                        <p><a>https://www.cdc.gov/coronavirus/2019-ncov/prepare/managing-stress-anxiety.html</a></p>
-                        <p><a>https://www.aljazeera.com/news/2020/03/coronavirus-emergency-kit-preparation-symptoms-tips-200314103304717.html</a></p>
-                        <p><a>https://edition.cnn.com/2020/03/12/health/what-60-older-need-to-know-coronavirus-wellness-trnd/index.html</a></p>
-                        <p><a>https://edition.cnn.com/2020/03/17/health/coronavirus-quarantine-grocery-list-drayer-wellness/index.html</a></p>
-
-                    </div>
+                    {this.props.dashboard ? <RightPane /> : <MyActivity />}
                 </div>
             </div>
         )
     }
 }
 
+const RightPane = () => (
+    <React.Fragment>
+        Covid-19 Stats
+        <span style={{float:'right',width:'200px'}}>
+            <CountryDropDown />
+        </span>
+        <div style={{marginTop:'5vh',display:'flex'}}>
+            <StatsInChart  />
+            <Counter title="Total Effected" count="125" color="blue" />
+            <Counter title="Total Recovered" count="82" color="green" />
+            <Counter title="Total Deaths" count="4" color="red" />
+        </div>
+        <div>
+            <h3>About Covid-19 and Tips, News and preventive measures</h3>
+            <p><a>https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html</a></p>
+            <p><a>https://www.bbc.com/news/world-51235105</a></p>
+            <p><a>https://www.redcross.org/about-us/news-and-events/news/2020/coronavirus-safety-and-readiness-tips-for-you.html</a></p>
+            <p><a>https://www.bbc.com/news/health-51711227</a></p>
+            <p><a>https://www.cdc.gov/coronavirus/2019-ncov/prepare/managing-stress-anxiety.html</a></p>
+            <p><a>https://www.aljazeera.com/news/2020/03/coronavirus-emergency-kit-preparation-symptoms-tips-200314103304717.html</a></p>
+            <p><a>https://edition.cnn.com/2020/03/12/health/what-60-older-need-to-know-coronavirus-wellness-trnd/index.html</a></p>
+            <p><a>https://edition.cnn.com/2020/03/17/health/coronavirus-quarantine-grocery-list-drayer-wellness/index.html</a></p>
+
+        </div>
+    </React.Fragment>
+)
 const PopupOptions = () => (
     <Popup
         position="right center"

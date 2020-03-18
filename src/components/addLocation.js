@@ -11,7 +11,11 @@ export default class LocationPortal extends React.Component {
                     <br />
                     <span style={{color:'#222',fontSize:'14px',letterSpacing:'3px',marginLeft:'15px'}}>Alert Application</span>
                 </div>
+                <div style={{float:'right'}}>
+                    <a href="/#/home"><Icon name="home" style={{fontSize:'48px',marginTop:'20px'}} color="black" /></a>
+                </div>
                 <h1 style={{fontSize:'38px',letterSpacing:'3px',paddingLeft:'50vh'}}>Location entry for Victim : <i style={{color:'#a6a6a6'}}>John</i></h1>
+                
                 <div>
                     <Form style={{margin:'10vh 0vw 0vh 15vw'}}>
                         <Form.Group >
