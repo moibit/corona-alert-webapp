@@ -4,6 +4,12 @@ import SummaryComponent from './summaryOfLocations'
 import '../css/App.css';
 
 export default class LocationPortal extends React.Component {
+    state = {
+        people : [{
+            name : '',
+            num : ''
+        }]
+    }
     render() {
         return (
             <div className="profile_screen">
@@ -26,12 +32,26 @@ export default class LocationPortal extends React.Component {
                         </Form.Group>
                         <div style={{marginTop:'5vh',color:'#a6a6a6',display:'flex'}}>
                             <h2>Add people with you (at that time)</h2> 
-                            <Button primary icon labelPosition='right' style={{marginLeft:'30vw'}}>
+                            <Button primary icon labelPosition='right' style={{marginLeft:'30vw'}}
+                            onClick={()=>{
+                                const _people = this.state.people;
+                                _people.push({
+                                    name : '',
+                                    num : ''
+                                })
+                                this.setState({
+
+                                })
+                            }}>
                                 Add Member
                                 <Icon name='plus' />
                             </Button>
                         </div>
-                        <MemberRow />
+                        <div style={{height:'40vh',overflowY:'auto',overflowX:'hidden'}}>
+                            {this.state.people.map((member) => {
+                                return (<MemberRow name={member.name} number={member.num} />)
+                            })}
+                        </div>
                     </Form>
                 </div>
                 <div style={{position:'absolute',bottom:'0px',backgroundColor:'#f0f0f0',
@@ -53,9 +73,9 @@ export default class LocationPortal extends React.Component {
     }
 }
 
-const MemberRow = () => (
+const MemberRow = (props) => (
     <Form.Group>
-        <Form.Input fluid label='Name' placeholder="Enter member's name" style={{width:'250px',marginRight:'100px'}} />
-        <Form.Input fluid label='Mobile Number' placeholder="Enter member's mobile number" style={{width:'250px',marginRight:'100px'}}/>
+        <Form.Input fluid label='Name' value={props.name} placeholder="Enter member's name" style={{width:'250px',marginRight:'100px'}} />
+        <Form.Input fluid label='Mobile Number' value={props.number} placeholder="Enter member's mobile number" style={{width:'250px',marginRight:'100px'}}/>
     </Form.Group>
 );
