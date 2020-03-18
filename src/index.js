@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import EntryPoint from './components/Entry.js';
 import Home from './components/home';
-import Profile from './components/profile';
+import LocationPortal from './components/addLocation';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
@@ -25,7 +25,7 @@ class Application extends React.Component {
                     )} />
 
                     <Route exact path="/home" component={Home} />  
-                    <Route exact path="/profile" component={Profile} />   
+                    <Route exact path="/addLocation" component={LocationPortal} />   
                 </Switch>
 
             </HashRouter>

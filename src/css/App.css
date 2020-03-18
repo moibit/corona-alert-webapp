@@ -43,7 +43,7 @@
 
 .tabs {
   max-width: 500px;
-  color:#a6a6a6;
+  color:#222;
   text-align: center;
 
 }
@@ -53,9 +53,9 @@
 .tabs label {
   display: inline-block;
   padding: 6px 0 6px 0;
-  margin: 0px -0.5px;
   width: 30%;
-  border-bottom: 1px solid #222;
+  border: 1px solid #a6a6a6;
+  border-radius: 5px;
   text-align: center;
   font-size: 18px;
 }
@@ -139,7 +139,7 @@
   background-color:#fbfbfb;
   min-height: 100vh;
   font-family: 'Alegreya Sans', sans-serif;
-  padding:5vh 25vw 20vh 30vw;
+  padding:5vh 10vw 0vh 0vw;
 }
 #details {
   display: flex;
