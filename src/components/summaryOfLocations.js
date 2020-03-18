@@ -10,7 +10,7 @@ const ModalExampleShorthand = () => (
     header='Please verify your submissions'
     actions={['Cancel', <Button onClick={()=>{
         window.location = '/#/myActivity'
-    }}>Submit</Button>]}
+    }} primary>Submit</Button>]}
     content={<Summary />}
   />
 )

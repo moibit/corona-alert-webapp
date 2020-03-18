@@ -21,8 +21,8 @@ export default class LocationPortal extends React.Component {
                     <Form style={{margin:'10vh 0vw 0vh 15vw'}}>
                         <Form.Group >
                             <Form.Input fluid label='Choose Location' placeholder='open in map' style={{width:'250px',marginRight:'100px'}} />
-                            <Form.Input fluid label='Date of Visit' placeholder='17/3/2020' style={{width:'250px',marginRight:'100px'}}/>
-                            <Form.Input fluid label='Time of Visit' placeholder='02:00 PM' style={{width:'250px',marginRight:'100px'}}/>
+                            <Form.Input fluid label='Date of Visit' type="date" style={{width:'250px',marginRight:'100px'}}/>
+                            <Form.Input fluid label='Time of Visit' type="text"  placeholder="Choose time" style={{width:'250px',marginRight:'100px'}}/>
                         </Form.Group>
                         <div style={{marginTop:'5vh',color:'#a6a6a6',display:'flex'}}>
                             <h2>Add people with you (at that time)</h2> 
@@ -38,7 +38,10 @@ export default class LocationPortal extends React.Component {
                     padding:'20px 50px 20px 0px',width:'100%'}}
                 >
                     <div style={{float:'right'}}>
-                        <Button icon labelPosition='left' color="twitter">
+                        <Button icon labelPosition='left' color="twitter"
+                        onClick={()=>{
+                            window.location.reload()
+                        }}>
                             <Icon name='plus' />
                             Add Another Location
                         </Button>

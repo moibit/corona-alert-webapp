@@ -55,14 +55,14 @@ const RightPane = () => (
         </div>
         <div>
             <h3>About Covid-19 and Tips, News and preventive measures</h3>
-            <p><a>https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html</a></p>
-            <p><a>https://www.bbc.com/news/world-51235105</a></p>
-            <p><a>https://www.redcross.org/about-us/news-and-events/news/2020/coronavirus-safety-and-readiness-tips-for-you.html</a></p>
-            <p><a>https://www.bbc.com/news/health-51711227</a></p>
-            <p><a>https://www.cdc.gov/coronavirus/2019-ncov/prepare/managing-stress-anxiety.html</a></p>
-            <p><a>https://www.aljazeera.com/news/2020/03/coronavirus-emergency-kit-preparation-symptoms-tips-200314103304717.html</a></p>
-            <p><a>https://edition.cnn.com/2020/03/12/health/what-60-older-need-to-know-coronavirus-wellness-trnd/index.html</a></p>
-            <p><a>https://edition.cnn.com/2020/03/17/health/coronavirus-quarantine-grocery-list-drayer-wellness/index.html</a></p>
+            <p><a href="https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html">https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html</a></p>
+            <p><a href="https://www.bbc.com/news/world-51235105">https://www.bbc.com/news/world-51235105</a></p>
+            <p><a href="https://www.redcross.org/about-us/news-and-events/news/2020/coronavirus-safety-and-readiness-tips-for-you.html">https://www.redcross.org/about-us/news-and-events/news/2020/coronavirus-safety-and-readiness-tips-for-you.html</a></p>
+            <p><a href="https://www.bbc.com/news/health-51711227">https://www.bbc.com/news/health-51711227</a></p>
+            <p><a href="https://www.cdc.gov/coronavirus/2019-ncov/prepare/managing-stress-anxiety.html">https://www.cdc.gov/coronavirus/2019-ncov/prepare/managing-stress-anxiety.html</a></p>
+            <p><a href="https://www.aljazeera.com/news/2020/03/coronavirus-emergency-kit-preparation-symptoms-tips-200314103304717.html">https://www.aljazeera.com/news/2020/03/coronavirus-emergency-kit-preparation-symptoms-tips-200314103304717.html</a></p>
+            <p><a href="https://edition.cnn.com/2020/03/12/health/what-60-older-need-to-know-coronavirus-wellness-trnd/index.html">https://edition.cnn.com/2020/03/12/health/what-60-older-need-to-know-coronavirus-wellness-trnd/index.html</a></p>
+            <p><a href="https://edition.cnn.com/2020/03/17/health/coronavirus-quarantine-grocery-list-drayer-wellness/index.html">https://edition.cnn.com/2020/03/17/health/coronavirus-quarantine-grocery-list-drayer-wellness/index.html</a></p>
 
         </div>
     </React.Fragment>
