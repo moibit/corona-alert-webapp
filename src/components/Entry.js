@@ -7,7 +7,7 @@ class Entry extends React.Component {
 
     render() {
       return (
-          <div className={this.props.case === 1 ? "app_bg" : "app_bg_moi_pay"}>
+          <div className="app_bg">
             <div style={{margin:'0vh 30vw',textAlign:'center',letterSpacing:'8px'}}>
                 <span style={{fontSize:'48px',fontFamily: 'Bai Jamjuree , sans-serif',color:'#79cedc'}}>
                     Covid-19
