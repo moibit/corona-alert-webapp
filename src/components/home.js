@@ -34,11 +34,23 @@ export default class Home extends React.Component {
                     <span style={{float:'right',width:'200px'}}>
                         <CountryDropDown />
                     </span>
-                    <div style={{marginTop:'10vh',display:'flex'}}>
+                    <div style={{marginTop:'5vh',display:'flex'}}>
                         <StatsInChart  />
                         <Counter title="Total Effected" count="125" color="blue" />
                         <Counter title="Total Recovered" count="82" color="green" />
                         <Counter title="Total Deaths" count="4" color="red" />
+                    </div>
+                    <div>
+                        <h3>About Covid-19 and Tips, News and preventive measures</h3>
+                        <p><a>https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html</a></p>
+                        <p><a>https://www.bbc.com/news/world-51235105</a></p>
+                        <p><a>https://www.redcross.org/about-us/news-and-events/news/2020/coronavirus-safety-and-readiness-tips-for-you.html</a></p>
+                        <p><a>https://www.bbc.com/news/health-51711227</a></p>
+                        <p><a>https://www.cdc.gov/coronavirus/2019-ncov/prepare/managing-stress-anxiety.html</a></p>
+                        <p><a>https://www.aljazeera.com/news/2020/03/coronavirus-emergency-kit-preparation-symptoms-tips-200314103304717.html</a></p>
+                        <p><a>https://edition.cnn.com/2020/03/12/health/what-60-older-need-to-know-coronavirus-wellness-trnd/index.html</a></p>
+                        <p><a>https://edition.cnn.com/2020/03/17/health/coronavirus-quarantine-grocery-list-drayer-wellness/index.html</a></p>
+
                     </div>
                 </div>
             </div>
@@ -73,6 +85,7 @@ const PopupOptions = () => (
   )
 
   const countryOptions = [
+    { key: 'ind', value: 'ind', text: 'India' },
     { key: 'af', value: 'af', text: 'Afghanistan' },
     { key: 'ax', value: 'ax', text: 'Aland Islands' },
     { key: 'al', value: 'al', text: 'Albania' },
@@ -100,17 +113,17 @@ const PopupOptions = () => (
   
   const CountryDropDown = () => (
     <Dropdown
-      clearable
       fluid
       search
       selection
+      defaultValue="ind"
       options={countryOptions}
       placeholder='Select Country'
     />
   )
 
   const Counter = (props) => (
-    <div style={{margin:'15vh 0vw',display:'flex',flexDirection:'column'}}>
+    <div style={{margin:'10vh 0vw',display:'flex',flexDirection:'column'}}>
         <span style={{fontSize:'82px',color:props.color}}>{props.count}</span>
         <span style={{fontSize:'14px',width:'180px',color:'#a6a6a6',marginTop:'7vh',letterSpacing:'4px'}}>{props.title}</span>
     </div>
