@@ -63,7 +63,8 @@
   cursor: pointer;
 }
 .tabs input:checked + label {
-  border-bottom-width: 3px;
+  border:none;
+  color:#797b7f;
 }
 
 .tabs #tab1:checked ~ .content #signup,
@@ -81,7 +82,7 @@
   color:#d05252;
   font-size:14px;
   display:flex;
-  margin-left:13vw;
+  margin-left:4vw;
 }
 
 #dontShow {
