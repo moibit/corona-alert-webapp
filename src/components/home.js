@@ -17,9 +17,9 @@ export default class Home extends React.Component {
                     fontSize:'48px',height:'100vh',
                     borderRight:'1px solid #a6a6a6'
                 }}>
-                    <span style={{color:'#79cedc'}}>Covid-19</span>
+                    <span style={{color:'#79cedc',letterSpacing:"10px"}}>Tracy</span>
                     <br />
-                    <span style={{color:'#222',fontSize:'14px',letterSpacing:'3px',marginLeft:'15px'}}>Alert Application</span>
+                    <span style={{color:'#222',fontSize:'10px',letterSpacing:'1px',marginLeft:'10px'}}>Stay Connected. Stay Safe.</span>
                     <div style={{marginTop:'4vh'}}>
                         <span style={{fontSize:'14px'}}>Actions</span>
                         <br />
@@ -49,9 +49,9 @@ const RightPane = () => (
         </span>
         <div style={{marginTop:'5vh',display:'flex'}}>
             <StatsInChart  />
-            <Counter title="Total Effected" count="125" color="blue" />
-            <Counter title="Total Recovered" count="82" color="green" />
-            <Counter title="Total Deaths" count="4" color="red" />
+            <Counter title="Total Effected" count="201" color="blue" />
+            <Counter title="Total Recovered" count="20" color="green" />
+            <Counter title="Total Deaths" count="5" color="red" />
         </div>
         <div>
             <h3>About Covid-19 and Tips, News and preventive measures</h3>
@@ -95,29 +95,29 @@ const PopupOptions = () => (
 
   const countryOptions = [
     { key: 'ind', value: 'ind', text: 'India' },
-    { key: 'af', value: 'af', text: 'Afghanistan' },
-    { key: 'ax', value: 'ax', text: 'Aland Islands' },
-    { key: 'al', value: 'al', text: 'Albania' },
-    { key: 'dz', value: 'dz', text: 'Algeria' },
-    { key: 'as', value: 'as', text: 'American Samoa' },
-    { key: 'ad', value: 'ad', text: 'Andorra' },
-    { key: 'ao', value: 'ao', text: 'Angola' },
-    { key: 'ai', value: 'ai', text: 'Anguilla' },
-    { key: 'ag', value: 'ag', text: 'Antigua' },
-    { key: 'ar', value: 'ar', text: 'Argentina' },
-    { key: 'am', value: 'am', text: 'Armenia' },
-    { key: 'aw', value: 'aw', text: 'Aruba' },
-    { key: 'au', value: 'au', text: 'Australia' },
-    { key: 'at', value: 'at', text: 'Austria' },
-    { key: 'az', value: 'az', text: 'Azerbaijan' },
-    { key: 'bs', value: 'bs', text: 'Bahamas' },
-    { key: 'bh', value: 'bh', text: 'Bahrain' },
-    { key: 'bd', value: 'bd', text: 'Bangladesh' },
-    { key: 'bb', value: 'bb', text: 'Barbados' },
-    { key: 'by', value: 'by', text: 'Belarus' },
-    { key: 'be', value: 'be', text: 'Belgium' },
-    { key: 'bz', value: 'bz', text: 'Belize' },
-    { key: 'bj', value: 'bj', text: 'Benin' },
+    // { key: 'af', value: 'af', text: 'Afghanistan' },
+    // { key: 'ax', value: 'ax', text: 'Aland Islands' },
+    // { key: 'al', value: 'al', text: 'Albania' },
+    // { key: 'dz', value: 'dz', text: 'Algeria' },
+    // { key: 'as', value: 'as', text: 'American Samoa' },
+    // { key: 'ad', value: 'ad', text: 'Andorra' },
+    // { key: 'ao', value: 'ao', text: 'Angola' },
+    // { key: 'ai', value: 'ai', text: 'Anguilla' },
+    // { key: 'ag', value: 'ag', text: 'Antigua' },
+    // { key: 'ar', value: 'ar', text: 'Argentina' },
+    // { key: 'am', value: 'am', text: 'Armenia' },
+    // { key: 'aw', value: 'aw', text: 'Aruba' },
+    // { key: 'au', value: 'au', text: 'Australia' },
+    // { key: 'at', value: 'at', text: 'Austria' },
+    // { key: 'az', value: 'az', text: 'Azerbaijan' },
+    // { key: 'bs', value: 'bs', text: 'Bahamas' },
+    // { key: 'bh', value: 'bh', text: 'Bahrain' },
+    // { key: 'bd', value: 'bd', text: 'Bangladesh' },
+    // { key: 'bb', value: 'bb', text: 'Barbados' },
+    // { key: 'by', value: 'by', text: 'Belarus' },
+    // { key: 'be', value: 'be', text: 'Belgium' },
+    // { key: 'bz', value: 'bz', text: 'Belize' },
+    // { key: 'bj', value: 'bj', text: 'Benin' },
   ]
   
   const CountryDropDown = () => (

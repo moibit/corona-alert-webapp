@@ -1,22 +1,68 @@
 import React from 'react'
 import { Button, Modal, Icon,Table } from 'semantic-ui-react'
+import {storeInMoiBit} from '../common/apicall';
+import {getUserData} from '../common/apicall';
 
-const ModalExampleShorthand = () => (
-  <Modal
-    trigger={<Button icon labelPosition='right' color="facebook">
-    Finish
-    <Icon name='check' />
-</Button>}
-    header='Please verify your submissions'
-    actions={['Cancel', <Button onClick={()=>{
-        window.location = '/#/myActivity'
-    }} primary>Submit</Button>]}
-    content={<Summary />}
-  />
-)
+class Finish extends React.Component {
+    state = {
+        insertingDataInProgress : false,
+        open : false
+    }
+    render() {
+        return (
+            <Modal
+                open = {this.state.open}
+                trigger={<Button icon labelPosition='right' color="facebook"
+                onClick={()=>this.setState({open : true})}>
+                    Finish
+                    <Icon name='check' />
+                    </Button>
+                }
+                header='Please verify your submissions'
+                actions={[<Button onClick={()=>this.setState({open : false})}>Cancel</Button>,
+
+                    <Button loading={this.state.insertingDataInProgress} onClick={async ()=>{
+                        let userData = await getUserData();
+                        this.props.summary.map(entry => {
+                            const dateArr = entry.details.dateOfVisit.split('-');
+                            const timeArr = entry.details.timeOfVisit.split(':');
+                            var derivedDate = new Date(dateArr[0], dateArr[1], dateArr[2], timeArr[0], timeArr[1], 0);
+                            if(entry.details.dateOfVisit !== '') {
+                                if(userData[entry.details.dateOfVisit] !== undefined) {
+                                    userData[entry.details.dateOfVisit].push({
+                                        timeStamp : derivedDate.getTime(),
+                                        latitude : entry.details.location.lat,
+                                        longitude : entry.details.location.long,
+                                    })
+                                }else {
+                                    userData[entry.details.dateOfVisit] = [{
+                                        timeStamp : derivedDate.getTime(),
+                                        latitude : entry.details.location.lat,
+                                        longitude : entry.details.location.long,
+                                    }]
+                                }
+                            }
+                        })
+                        try {
+                            this.setState({insertingDataInProgress : true})
+                            await storeInMoiBit(userData);
+                            this.setState({insertingDataInProgress : false});
+                            window.location='/#/myActivity'
+                        }catch(e) {
+                            console.log(e)
+                        }
+                        
+
+                    }} primary>Submit</Button>
+                ]}
+                content={<Summary data={this.props.summary} />}
+            />
+        )
+    }
+}
 
 
-const Summary = () => (
+const Summary = (props) => (
     <center style={{margin:"30px 0px"}}>
     <Table celled structured style={{width:'80%'}}>
         <Table.Header>
@@ -32,39 +78,30 @@ const Summary = () => (
             </Table.Row>
         
         </Table.Header>
-
         <Table.Body>
-            <Table.Row>
-                <Table.Cell>17th March,2020, 10:00 AM</Table.Cell>
-                <Table.Cell>Block B, Rmz Infinity, Bengaluru</Table.Cell>
-                <Table.Cell>
+            {props.data.map(locationDetails => {
+                return (
+                    locationDetails.details.location.desc !== '' ?
                     <Table.Row>
-                        <Table.Cell>Alice</Table.Cell>
-                        <Table.Cell>9892984892</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Bob</Table.Cell>
-                        <Table.Cell>6532984892</Table.Cell>
-                    </Table.Row>
-                </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-                <Table.Cell>17th March,2020, 2:00 PM</Table.Cell>
-                <Table.Cell>Tin Factory,Bengaluru</Table.Cell>
-                <Table.Cell textAlign='center'>NA</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-                <Table.Cell>17th March,2020, 3:30 PM</Table.Cell>
-                <Table.Cell>Kalamandir, Marathahalli Bridge, Bengaluru</Table.Cell>
-                <Table.Cell>
-                    <Table.Row>
-                        <Table.Cell>Charles</Table.Cell>
-                        <Table.Cell>9892344892</Table.Cell>
-                    </Table.Row>
-                </Table.Cell>
-            </Table.Row>
+                        <Table.Cell>{locationDetails.details.dateOfVisit}, {locationDetails.details.timeOfVisit}</Table.Cell>
+                        <Table.Cell>{locationDetails.details.location.desc}</Table.Cell>
+                        <Table.Cell>
+                            {locationDetails.details.members.map(member => {
+                                    return (
+                                        member.name === '' ? <React.Fragment>NA</React.Fragment> : 
+                                        <Table.Row>
+                                            <Table.Cell>{member.name}</Table.Cell>
+                                            <Table.Cell>{member.mobileNo}</Table.Cell>
+                                        </Table.Row>
+                                    )
+                                })
+                            }
+                        </Table.Cell>
+                    </Table.Row> : '' 
+                )
+            })}
         </Table.Body>
   </Table></center>
 )
 
-export default ModalExampleShorthand
+export default Finish
