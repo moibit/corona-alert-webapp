@@ -10,6 +10,9 @@ import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 class Application extends React.Component {
+    state = {
+        moi_id : {}
+    }
     render() {
         return (
             <HashRouter>
@@ -18,11 +21,11 @@ class Application extends React.Component {
                         <Redirect to="/login" />
                     )} />
                     <Route exact path="/signup" render={() => (
-                        <EntryPoint case={1} />
+                        <EntryPoint case={1} mapMoi_ID={(genMoiID) => this.setState({moi_id : genMoiID})} />
                     )} />
 
                     <Route exact path="/login" render={() => (
-                        <EntryPoint case={2} />
+                        <EntryPoint case={2} mapMoi_ID={(genMoiID) => this.setState({moi_id : genMoiID})} />
                     )} />
 
                     <Route exact path="/home" render={() => (
