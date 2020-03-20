@@ -1,21 +1,29 @@
 import React from 'react';
 import classNames from 'classnames';
-import { loginUser } from '../common/apicall';
+import { loginuser } from '../common/apicall';
 export default class Register extends React.Component {
     state = {
         userName: '',
         passPhrase: '',
-        validationBoolean: true,
+        validationFailed: false,
         validationInProgress: false,
+        loginInProgress : false
     }
     handleLogin = async (e) => {
         e.preventDefault();
         let data = {
             mobile: this.state.userName
         }
-        let response = await loginUser(data);
-
+        this.setState({validationInProgress : true})
+        if(await loginuser(data)) {
+            this.setState({validationInProgress : false})
+            window.location = '/#/home';
+        }else {
+            this.setState({validationInProgress : false,validationFailed : true});
+            setTimeout(()=>this.setState({validationFailed : false}),3000)
+        }
     }
+    
     render() {
         return (
             <div id="signup" role="list" className="ui divided selection list">
@@ -45,7 +53,7 @@ export default class Register extends React.Component {
                     <br />
                     {/* <span style={{fontSize:'14px',color:'#fff',marginTop:'10px'}}> (01:00) </span> */}
                 </div>
-                <div id={!this.state.validationBoolean ? "invalid_pswd" : "dontShow"}>You're a Trespasser <span style={{ fontSize: '20px', marginLeft: '5px', marginTop: '2px' }}>&#128518;</span></div>
+                <div id={this.state.validationFailed ? "invalid_pswd" : "dontShow"}>Authentication Failed! You are not a Moi_ID User</div>
                 <center>
                     <div className={classNames(
                         {

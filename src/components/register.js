@@ -6,8 +6,8 @@ export default class Register extends React.Component {
         mobNo: '',
         userName: '',
         passPhrase: '',
-        validationBoolean: true,
-        validationInProgress: false,
+        errorInCreation: false,
+        creationInProgress: false,
     }
     handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,9 +15,13 @@ export default class Register extends React.Component {
             mobile: this.state.mobNo,
             userName: this.state.userName
         }
-        let response = await registeruser(data);
-        console.log(response)
-
+        this.setState({creationInProgress : true})
+        if(await registeruser(data)) {
+            this.setState({creationInProgress : false});
+            window.location = '/#/home';
+        }else {
+            this.setState({creationInProgress : false,errorInCreation : true});
+        }
     }
     render() {
         return (
@@ -60,7 +64,7 @@ export default class Register extends React.Component {
                     <br />
                     {/* <span style={{fontSize:'14px',color:'#fff',marginTop:'10px'}}> (01:00) </span> */}
                 </div>
-                <div id={!this.state.validationBoolean ? "invalid_pswd" : "dontShow"}>You're a Trespasser <span style={{ fontSize: '20px', marginLeft: '5px', marginTop: '2px' }}>&#128518;</span></div>
+                <div id={this.state.errorInCreation ? "invalid_pswd" : "dontShow"}>Something went wrong! Try after sometime</div>
                 <center>
                     <div className={classNames(
                         {
@@ -72,7 +76,7 @@ export default class Register extends React.Component {
                     >
                         Signup
                         <span style={{ marginLeft: '5px' }}>
-                            {this.state.validationInProgress ? <i aria-hidden="true" id="contract_comm_id" className="circle notch loading icon"></i> :
+                            {this.state.creationInProgress ? <i aria-hidden="true" id="contract_comm_id" className="circle notch loading icon"></i> :
                                 <i aria-hidden="true" id="unlock_comm_id" className="arrow alternate circle right outline icon"></i>}
                         </span>
                     </div>
