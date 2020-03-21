@@ -4,7 +4,7 @@ import './css/index.css';
 import EntryPoint from './components/Entry.js';
 import Home from './components/home';
 import LocationPortal from './components/addLocation';
-import MyActivity from './components/mylocations';
+import RouteInMap from './components/plotOnMap';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
@@ -21,11 +21,11 @@ class Application extends React.Component {
                         <Redirect to="/login" />
                     )} />
                     <Route exact path="/signup" render={() => (
-                        <EntryPoint case={1} mapMoi_ID={(genMoiID) => this.setState({moi_id : genMoiID})} />
+                        <EntryPoint case={1} />
                     )} />
 
                     <Route exact path="/login" render={() => (
-                        <EntryPoint case={2} mapMoi_ID={(genMoiID) => this.setState({moi_id : genMoiID})} />
+                        <EntryPoint case={2} />
                     )} />
 
                     <Route exact path="/home" render={() => (
@@ -34,7 +34,8 @@ class Application extends React.Component {
                     <Route exact path="/addLocation" component={LocationPortal} />   
                     <Route exact path="/myActivity" render={() => (
                         <Home dashboard={false} />
-                    )} />   
+                    )} /> 
+                    <Route exact path="/route" component={RouteInMap} />   
                 </Switch>
 
             </HashRouter>
