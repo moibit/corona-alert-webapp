@@ -1,16 +1,14 @@
 import React from 'react'
 import { Header, Table , Icon} from 'semantic-ui-react'
 import {getUserData} from '../common/apicall';
-import { Link } from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
 class MyActivity extends React.Component {
     state = {
         data : {},
         loading : true
     }
     async componentDidMount() {
-        const hi = await getUserData();
-        this.setState({data : hi,loading:false});
+        this.setState({data : await getUserData(),loading:false});
     }
     render() {
         return (
@@ -21,7 +19,7 @@ class MyActivity extends React.Component {
                         </div>
                         Summary of Date to Route of places you visited
                     </h2>
-                    <Table basic='very' celled collapsing style={{width:'80%'}}>
+                    <Table basic='very' celled collapsing style={{width:'100%'}}>
                         <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell style={{width:'25%'}}>Date</Table.HeaderCell>
@@ -31,9 +29,9 @@ class MyActivity extends React.Component {
 
                         <Table.Body>
                         {this.state.loading ? <h3>Loading...</h3> : 
-                            this.state.data.map((date,index) => {
+                            (Object.keys(this.state.data)).map((date => {
                                 return (
-                                    <Table.Row key={'visited'+index}>
+                                    <Table.Row>
                                         <Table.Cell>
                                         <Header as='h4'>
                                             <Header.Content>
@@ -42,7 +40,18 @@ class MyActivity extends React.Component {
                                         </Header>
                                         </Table.Cell>
                                         <Table.Cell>
-                                            {/* <div style={{color:'blue',cursor:'pointers'}} onClick={()=>this.triggerLinkWithParams(this.state.data[date])}>See in map</div> */}
+                                            {this.state.data[date].map(entry => {
+                                                return (
+                                                    <Table.Row>
+                                                        <Table.Cell>
+                                                            <pre>{JSON.stringify(entry)}</pre>
+                                                        </Table.Cell>
+                                                    </Table.Row>
+                                                )
+                                            })}
+                                            
+                                        </Table.Cell>
+                                        <Table.Cell>
                                             <Link
                                                 to={{
                                                     pathname: "/route",
@@ -52,7 +61,7 @@ class MyActivity extends React.Component {
                                         </Table.Cell>
                                     </Table.Row>
                                 )
-                            })}
+                            }))}
                         </Table.Body>
                     </Table>
                 </center>

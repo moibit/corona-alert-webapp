@@ -29,7 +29,7 @@ export const loginuser = async (data) => {
 export const storeInMoiBit = async (data) => {
     const devIndex = moi_id.getDeveloperIndex();
     const authResponse = await axios({
-        url : 'http://localhost:3019/keyaccount/id/'+devIndex,
+        url : 'http://139.59.25.7:3019/keyaccount/id/'+devIndex,
         method : 'GET'
     });
     const config = authResponse.data.result;
@@ -70,7 +70,7 @@ export const getUserData = async () => {
         const name = moi_id.getID();
         const devIndex = moi_id.getDeveloperIndex();
         const authResponse = await axios({
-            url : 'http://localhost:3019/keyaccount/id/'+devIndex,
+            url : 'http://139.59.25.7:3019/keyaccount/id/'+devIndex,
             method : 'GET'
         });
         const config = authResponse.data.result;
