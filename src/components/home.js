@@ -2,39 +2,50 @@ import React from 'react'
 import {Popup, Button,Menu,Dropdown} from 'semantic-ui-react';
 import StatsInChart from './lineChart.js';
 import MyActivity from './mylocations';
-
+import Logo from '../tracy_logo_green.png';
+import MoiBitIcon from '../moibit_logo.png';
 import '../css/App.css';
 
 export default class Home extends React.Component {
     render() {
+        const route = window.location;
+        const activeRoute = route.hash.substring(2,route.hash.length);
+        const hackBool = activeRoute === 'myActivity';
         return (
             <div className="profile_screen">
                 <div style={{position:'absolute',
                     left:'0px',
                     top:'0px',
-                    padding:'10vh 4vw',
+                    padding:'10vh 0vw',
                     fontFamily: 'Bai Jamjuree , sans-serif',
                     fontSize:'48px',height:'100vh',
                     borderRight:'1px solid #a6a6a6'
                 }}>
-                    <span style={{color:'#79cedc',letterSpacing:"10px"}}>Tracy</span>
-                    <br />
-                    <span style={{color:'#222',fontSize:'10px',letterSpacing:'1px',marginLeft:'10px'}}>Stay Connected. Stay Safe.</span>
-                    <div style={{marginTop:'4vh'}}>
-                        <span style={{fontSize:'14px'}}>Actions</span>
-                        <br />
-                        <PopupOptions />
-                    </div>
-                    <div style={{marginTop:'4vh'}}>
-                        <span style={{fontSize:'14px'}}>My Activity</span>
-                        <br />
-                        <Button onClick={()=>{
-                            window.location = '/#/myActivity'
-                        }}primary>My Locations</Button>
-                    </div>
+                <div style={{height:'150px',marginTop:'-5vh',padding:'0px 4vw'}}>
+                    <img src={Logo} height="100%" width="100%" />
                 </div>
-                <div style={{marginLeft:'25vw'}}>
+                <div style={{color:'#222',fontSize:'10px',marginTop:'-30px',letterSpacing:'1px',marginLeft:'40px',padding:'0px 4vw'}}>Stay Connected. Stay Safe.</div>
+                <div style={{marginTop:'4vh',padding:'0px 4vw'}}>
+                    <span style={{fontSize:'14px'}}>Actions</span>
+                    <br />
+                    <PopupOptions />
+                </div>
+                <div style={{marginTop:'4vh',padding:'2px 4vw',boxShadow:hackBool ? '1px 10px 12px rgb(0,0,0,0.5' : ''}}>
+                    <span style={{fontSize:'14px'}}>My Activity</span>
+                    <br />
+                    <Button style={{marginBottom:'15px'}} onClick={()=>{
+                        window.location = '/#/myActivity'
+                    }}primary>My Locations</Button>
+                </div>
+
+                </div>
+                <div style={{marginLeft:'30vw'}}>
                     {this.props.dashboard ? <RightPane /> : <MyActivity />}
+                </div>
+                <div style={{position:'absolute',bottom:'0vh',letterSpacing:'2px',backgroundColor:'#102b4e',textAlign:'center',color:'#fff',width:'100vw',paddingLeft:'36vw',display:'flex'}}>
+                    <div style={{marginTop:'25px'}}>Powered by <span style={{fontWeight:'300'}}>Moi_</span>
+                    <span style={{color:'#79cedc',fontWeight:'800'}}>ID</span>.Built on </div>
+                    <a href="https://www.moibit.io" target="_blank"><img src={MoiBitIcon} height="60px" width="150px" /></a>
                 </div>
             </div>
         )
@@ -72,7 +83,7 @@ const PopupOptions = () => (
         position="right center"
         on='click'
         trigger={
-            <Button primary>Add Location</Button>
+            <Button style={{marginBottom:'15px'}}  primary>Add Location</Button>
         }
     >
       <Popup.Content>

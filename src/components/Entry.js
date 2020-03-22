@@ -37,7 +37,7 @@ class Entry extends React.Component {
             <div style={{position:'absolute',bottom:'0vh',letterSpacing:'2px',backgroundColor:'#102b4e',textAlign:'center',color:'#fff',width:'100vw',paddingLeft:'36vw',display:'flex'}}>
                 <div style={{marginTop:'25px'}}>Powered by <span style={{fontWeight:'300'}}>Moi_</span>
                 <span style={{color:'#79cedc',fontWeight:'800'}}>ID</span>.Built on </div>
-                <a href="https://www.moibit.io"><img src={MoiBitIcon} height="60px" width="150px" /></a>
+                <a href="https://www.moibit.io" target="_blank"><img src={MoiBitIcon} height="60px" width="150px" /></a>
             </div>
         </div>
       )
