@@ -36,7 +36,7 @@ export default class Register extends React.Component {
     }
     render() {
         return (
-            <div id="signup" role="list" className="ui divided selection list">
+            <div className="ui divided selection list">
                 <div id="listitem-c19">
                     <div id="inputLabel2" className="ui horizontal label">
                         Mobile Number
@@ -45,8 +45,8 @@ export default class Register extends React.Component {
                         <input id="l_userName"
                             value={this.state.mobNo}
                             onChange={e => this.setState({ mobNo: e.target.value })}
-                            type="number" placeholder="Enter your mobile number"
-                            style={{ fontSize: '13px', width: '300px', color: '#222' }} />
+                            type="phone" placeholder="Enter your mobile number"
+                            style={{ fontSize: '13px', width: '300px', color: '#fff' }} />
                     </div>
                 </div>
                 {this.state.requestForEnteringOTP  ? 
@@ -59,7 +59,7 @@ export default class Register extends React.Component {
                                 value={this.state.passPhrase}
                                 onChange={e => this.setState({ passPhrase: e.target.value })}
                                 type="text" placeholder="Enter the one time password"
-                                style={{ fontSize: '13px', width: '300px', color: '#222' }} />
+                                style={{ fontSize: '13px', width: '300px', color: '#fff' }} />
                         </div>
                         <br />
                         {/* <span style={{fontSize:'14px',color:'#fff',marginTop:'10px'}}> (01:00) </span> */}
@@ -81,13 +81,13 @@ export default class Register extends React.Component {
                                     <i aria-hidden="true" id="unlock_comm_id" className="arrow alternate circle right outline icon"></i>}
                             </span>
                         </div>
-                        <div style={{ marginTop: '20px', color: '#a0a0a0' }}>Already have an account? <a style={{ color: '#22ceob' }} href="/#/login">Login now!</a></div>
                     </center> 
                 </React.Fragment> : <center><Button style={{padding:'10px'}} onClick={async ()=> {
                     await sendTracyOTP(this.state.mobNo);
                     this.setState({requestForEnteringOTP : true})
-                }} primary>Send OTP</Button>                                    <div style={{ marginTop: '20px', color: '#a0a0a0' }}>Do not have Account? <a style={{ color: '#22ceob' }} href="/#/signup">Register now!</a></div>
-</center>}
+                }} primary>Send OTP</Button>  
+
+                </center>}
             </div>
 
         )

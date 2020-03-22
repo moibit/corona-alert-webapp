@@ -1,7 +1,7 @@
 .app_bg {
   margin: 0;
-  background-color: #fafafa;
-  overflow: hidden; 
+  background-color: #243665;
+  overflow: auto; 
   padding:15vh 0vh; 
   min-height: 100vh;
 }

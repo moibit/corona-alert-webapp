@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Bai+Jamjuree:700i&display=swap');
 
-.leypa-modal-content {
-  /* background-color:#0f2043; */
-  min-height: 40vh;
-  font-family: 'Alegreya Sans', sans-serif;
-  margin : 5vh 35vw 0vh 35vw;
-  padding:20px 20px 20px 0px;
-  border-radius: 5px;
-  border:1px solid #005b8f;
-}
-#details-horizontal-divider {  
-  height: 1px;
-  color: #233323;
-  background-color: #233323;
-  border: none;
-  margin:5px 10px;
-}
 
 .button_with_pointer_events_enable {
   margin-top:3vh;
@@ -29,8 +13,7 @@
 }
 #inputLabel2 {
   background-color:transparent;
-  color :#005b8f;
-  /* border:1px solid #325c79; */
+  color :#8bd8bd;
   padding:10px 20px;
   text-align: center;
   margin-left:3vw;
@@ -42,10 +25,10 @@
 }
 
 .tabs {
-  max-width: 500px;
-  color:#222;
-  text-align: center;
-
+  max-width: 600px;
+  margin-top: 40px;
+  padding: 0 20px;
+  color:#fff;
 }
 .tabs input[type=radio] {
   display: none;
@@ -53,31 +36,32 @@
 .tabs label {
   display: inline-block;
   padding: 6px 0 6px 0;
-  width: 30%;
-  border: 1px solid #a6a6a6;
-  border-radius: 5px;
+  margin: 0px -0.5px;
+  width: 40%;
+  border-bottom: 1px solid rgb(213, 164, 88);
   text-align: center;
-  font-size: 18px;
 }
 .tabs label:hover {
   cursor: pointer;
 }
 .tabs input:checked + label {
-  border:none;
-  color:#797b7f;
+  border-bottom-width: 3px;
 }
 
 .tabs #tab1:checked ~ .content #signup,
 .tabs #tab2:checked ~ .content #login {
-  margin-top:20px;
   display: block;
+  padding:30px;
 }
 
 .tabs .content > div {
   display: none;
+  padding: 20px;
+  /* margin-left:8vw; */
   text-align: left;
   overflow: auto;
 }
+
 #invalid_pswd {
   color:#d05252;
   font-size:14px;
@@ -156,4 +140,21 @@
 
 #listitem-c19 {
   margin-bottom: 10px;
+}
+
+.container_tracy {
+  margin:0vh 30vw;
+  /* background-color: #243665; */
+  text-align:center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+.container_tracy img {
+  margin-left:12vw;
+}
+.leypa-modal-content {
+  margin-left:0vw;
+  min-height: 40vh;
+  font-family: 'Alegreya Sans', sans-serif;
 }
