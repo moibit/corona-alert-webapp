@@ -2,8 +2,8 @@ import React from 'react'
 import {Popup, Button,Menu,Dropdown} from 'semantic-ui-react';
 import StatsInChart from './lineChart.js';
 import MyActivity from './mylocations';
-import Logo from '../tracy_logo_green.png';
-import MoiBitIcon from '../moibit_logo.png';
+import Logo from '../assets/tracy_logo_green.png';
+import MoiBitIcon from '../assets/moibit_logo.png';
 import '../css/App.css';
 
 export default class Home extends React.Component {

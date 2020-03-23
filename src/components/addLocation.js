@@ -2,6 +2,7 @@ import React from 'react'
 import { Icon, Button,Form } from 'semantic-ui-react';
 import SummaryComponent from './summaryOfLocations'
 import '../css/App.css';
+import Logo from '../assets/tracy_logo_green.png';
 import AutoComplete from './autoComplete.js'
 
 export default class LocationPortal extends React.Component {
@@ -60,10 +61,11 @@ export default class LocationPortal extends React.Component {
     render() {
         return (
             <div className="profile_screen">
-                <div style={{position:'absolute',top:'50px',left:'50px',fontFamily: 'Bai Jamjuree , sans-serif',fontSize:'48px'}}>
-                    <span style={{color:'#79cedc',letterSpacing:'15px'}}>Tracy</span>
-                    <br />
-                    <span style={{color:'#222',fontSize:'10px',letterSpacing:'1px',marginLeft:'5px'}}>Stay Connected. Stay Safe.</span>
+                <div style={{position:'absolute',top:'50px',left:'0px'}}>
+                    <div style={{height:'125px',marginTop:'-5vh',padding:'0px 4vw'}}>
+                        <img src={Logo} height="100%" width="250px" />
+                    </div>
+                    <div style={{color:'#a6a6a6',fontSize:'10px',marginTop:'-30px',letterSpacing:'1px',marginLeft:'40px',padding:'0px 4vw'}}>Stay Connected. Stay Safe.</div>
                 </div>
                 <div style={{float:'right'}}>
                     <a href="/#/home"><Icon name="home" style={{fontSize:'48px',marginTop:'20px'}} color="black" /></a>
@@ -72,13 +74,19 @@ export default class LocationPortal extends React.Component {
                 
                 {this.state.locationEntries.map((entry,index) => {
                     return (
-                        this.state.locationEntries[index].filled ? 
-                        <div style={{marginLeft:'10vw',fontSize:'14px',color:'green',padding:'20px',border:'1px solid #e6e6e6',borderRadius:'5px',boxShadow:'10px 10px 5px 0px rgba(0,0,0,0.45)'}} key={'filled'+index}>
+                        <React.Fragment>
+                        {this.state.locationEntries[index].filled ? 
+                        <div>
+                            <h2 style={{marginLeft:'10vw',marginTop:'5vh',color:'#005b8f'}} >Locations entered</h2>
+                            <div style={{marginLeft:'10vw',fontSize:'14px',color:'green',padding:'20px',border:'1px solid #e6e6e6',borderRadius:'5px',boxShadow:'10px 10px 5px 0px rgba(0,0,0,0.45)'}} key={'filled'+index}>
                             {this.state.locationEntries[index].details.location.desc}
                         </div> 
+
+                        </div>
                         :
                         <div key={'location_'+index}>
-                            <Form style={{margin:'10vh 0vw 0vh 15vw'}}>
+                            <h2 style={{marginLeft:'10vw',marginTop:'5vh',color:'#005b8f'}} >Add location details</h2>
+                            <Form style={{margin:'5vh 0vw 0vh 15vw'}}>
                                 <div style={{display:'flex'}}>
                                     <Form.Field style={{width:'250px',marginRight:'100px'}}>
                                         <label>Location</label>
@@ -121,7 +129,8 @@ export default class LocationPortal extends React.Component {
                                     })}
                                 </div>
                             </Form>
-                        </div>
+                        </div>}
+                        </React.Fragment>
                     )
                 })}
                 <div id={this.state.validationFailed ? "invalid_pswd" : "dontShow"}>Make sure you have filled atleast location,date and time of visit</div>

@@ -2,8 +2,8 @@ import React from 'react';
 import '../css/App.css';
 import Register from './register.js';
 import Login from './signin.js';
-import MoiBitIcon from '../moibit_logo.png';
-import Logo from '../tracy_logo_green.png';
+import MoiBitIcon from '../assets/moibit_logo.png';
+import Logo from '../assets/tracy_logo_green.png';
 
 class Entry extends React.Component {
 
